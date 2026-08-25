@@ -69,7 +69,6 @@ def install_fake_sglang(monkeypatch: pytest.MonkeyPatch) -> None:
             sampling_params,
             eos_token_ids=None,
             vocab_size=None,
-            extra_key=None,
             **kwargs,
         ) -> None:
             del kwargs
@@ -79,14 +78,9 @@ def install_fake_sglang(monkeypatch: pytest.MonkeyPatch) -> None:
             self.sampling_params = sampling_params
             self.eos_token_ids = eos_token_ids
             self.vocab_size = vocab_size
-            self.extra_key = extra_key
             self.output_ids = []
             self.prefix_indices = []
             self.extend_range = SimpleNamespace(length=len(origin_input_ids))
-
-        def reset_for_retract(self) -> None:
-            self.prefix_indices = []
-            self.extend_range = None
 
     class FakeSamplingParams:
         def __init__(self, **kwargs) -> None:
@@ -491,6 +485,66 @@ def test_qwen3_tts_preprocessing_does_not_mutate_global_rng(
     assert prepared.state.seed is None
 
 
+class _UploadedVoicePromptTestWrapper:
+    def __init__(self, on_create) -> None:
+        self._on_create = on_create
+
+    def create_voice_clone_prompt(self, **kwargs):
+        value = self._on_create(**kwargs)
+        return [SimpleNamespace(ref_text=kwargs["ref_text"], value=value)]
+
+    def _prompt_items_to_voice_clone_prompt(self, prompt_items):
+        value = prompt_items[0].value
+        return {
+            "ref_code": [torch.tensor([[value]], dtype=torch.long)],
+            "ref_spk_embedding": [torch.tensor([float(value)])],
+            "icl_mode": [True],
+        }
+
+
+def _uploaded_voice_prompt_test_input(
+    voice_name: str,
+    voice_version: int = 1,
+) -> tuple[SimpleNamespace, SpeakerCacheKey]:
+    state = SimpleNamespace(
+        ref_audio=f"{voice_name}.wav",
+        ref_text=f"{voice_name} reference",
+        x_vector_only_mode=False,
+    )
+    key = SpeakerCacheKey(
+        "qwen3_tts_icl",
+        voice_name,
+        voice_version,
+        "voice_clone_prompt",
+    )
+    return state, key
+
+
+def _track_uploaded_voice_prompt_followers(
+    monkeypatch: pytest.MonkeyPatch,
+    expected_followers: int,
+) -> threading.Event:
+    all_following = threading.Event()
+    follower_lock = threading.Lock()
+    follower_count = 0
+    original_result = qwen3_request_builders.concurrent.futures.Future.result
+
+    def tracked_result(future, timeout=None):
+        nonlocal follower_count
+        with follower_lock:
+            follower_count += 1
+            if follower_count == expected_followers:
+                all_following.set()
+        return original_result(future, timeout=timeout)
+
+    monkeypatch.setattr(
+        qwen3_request_builders.concurrent.futures.Future,
+        "result",
+        tracked_result,
+    )
+    return all_following
+
+
 def test_qwen3_tts_uploaded_voice_clone_prompt_uses_shared_cache(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -595,6 +649,230 @@ def test_qwen3_tts_uploaded_voice_clone_prompt_uses_shared_cache(
     )
 
     assert calls == 3
+
+
+def test_qwen3_tts_uploaded_voice_cold_miss_is_single_flight(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    cache = get_speaker_artifact_cache()
+    cache.clear()
+    worker_count = 8
+    start = threading.Barrier(worker_count)
+    entered = threading.Event()
+    release = threading.Event()
+    calls_lock = threading.Lock()
+    calls = 0
+    state, cache_key = _uploaded_voice_prompt_test_input("single-flight")
+    all_following = _track_uploaded_voice_prompt_followers(
+        monkeypatch,
+        worker_count - 1,
+    )
+
+    def on_create(**kwargs):
+        nonlocal calls
+        assert kwargs["ref_audio"] == "single-flight.wav"
+        with calls_lock:
+            calls += 1
+        entered.set()
+        assert release.wait(timeout=5)
+        return 7
+
+    wrapper = _UploadedVoicePromptTestWrapper(on_create)
+    results = [None] * worker_count
+    errors: list[Exception] = []
+
+    def worker(index: int) -> None:
+        try:
+            start.wait(timeout=5)
+            results[index] = (
+                qwen3_request_builders._get_or_create_qwen3_tts_uploaded_voice_prompt(
+                    state,
+                    wrapper,
+                    cache_key,
+                )
+            )
+        except Exception as exc:
+            errors.append(exc)
+
+    threads = [threading.Thread(target=worker, args=(index,)) for index in range(8)]
+    for thread in threads:
+        thread.start()
+    try:
+        assert entered.wait(timeout=5)
+        assert all_following.wait(timeout=5)
+    finally:
+        release.set()
+        for thread in threads:
+            thread.join(timeout=5)
+
+    assert all(not thread.is_alive() for thread in threads)
+    assert not errors
+    assert calls == 1
+    assert all(result is not None for result in results)
+    prompts = [result[0] for result in results if result is not None]
+    prompt_pointers = {prompt["ref_spk_embedding"][0].data_ptr() for prompt in prompts}
+    assert len(prompt_pointers) == worker_count
+
+    cached = cache.get(cache_key)
+    assert isinstance(cached, dict)
+    assert cached["ref_spk_embedding"][0].device.type == "cpu"
+    assert cached["ref_spk_embedding"][0].data_ptr() not in prompt_pointers
+
+    prompts[0]["ref_spk_embedding"][0].fill_(99)
+    hit_prompt, hit_ref_text = (
+        qwen3_request_builders._get_or_create_qwen3_tts_uploaded_voice_prompt(
+            state,
+            wrapper,
+            cache_key,
+        )
+    )
+    assert calls == 1
+    assert hit_ref_text == "single-flight reference"
+    assert torch.equal(hit_prompt["ref_spk_embedding"][0], torch.tensor([7.0]))
+    assert hit_prompt["ref_spk_embedding"][0].data_ptr() not in prompt_pointers
+
+
+def test_qwen3_tts_uploaded_voice_different_keys_build_in_parallel() -> None:
+    cache = get_speaker_artifact_cache()
+    cache.clear()
+    start = threading.Barrier(2)
+    both_entered = threading.Event()
+    release = threading.Event()
+    active_lock = threading.Lock()
+    active = 0
+    max_active = 0
+    calls: list[str] = []
+
+    def on_create(**kwargs):
+        nonlocal active, max_active
+        ref_audio = kwargs["ref_audio"]
+        with active_lock:
+            calls.append(ref_audio)
+            active += 1
+            max_active = max(max_active, active)
+            if active == 2:
+                both_entered.set()
+        try:
+            assert release.wait(timeout=5)
+        finally:
+            with active_lock:
+                active -= 1
+        return 1 if ref_audio == "voice-a.wav" else 2
+
+    wrapper = _UploadedVoicePromptTestWrapper(on_create)
+    inputs = [
+        _uploaded_voice_prompt_test_input("voice-a"),
+        _uploaded_voice_prompt_test_input("voice-b"),
+    ]
+    results = [None, None]
+    errors: list[Exception] = []
+
+    def worker(index: int) -> None:
+        state, cache_key = inputs[index]
+        try:
+            start.wait(timeout=5)
+            results[index] = (
+                qwen3_request_builders._get_or_create_qwen3_tts_uploaded_voice_prompt(
+                    state,
+                    wrapper,
+                    cache_key,
+                )
+            )
+        except Exception as exc:
+            errors.append(exc)
+
+    threads = [threading.Thread(target=worker, args=(index,)) for index in range(2)]
+    for thread in threads:
+        thread.start()
+    try:
+        assert both_entered.wait(timeout=5)
+    finally:
+        release.set()
+        for thread in threads:
+            thread.join(timeout=5)
+
+    assert all(not thread.is_alive() for thread in threads)
+    assert not errors
+    assert max_active == 2
+    assert set(calls) == {"voice-a.wav", "voice-b.wav"}
+    assert {
+        int(result[0]["ref_code"][0].item()) for result in results if result is not None
+    } == {1, 2}
+
+
+def test_qwen3_tts_uploaded_voice_failure_fans_out_and_is_retryable(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    cache = get_speaker_artifact_cache()
+    cache.clear()
+    worker_count = 6
+    start = threading.Barrier(worker_count)
+    entered = threading.Event()
+    release = threading.Event()
+    calls_lock = threading.Lock()
+    calls = 0
+    state, cache_key = _uploaded_voice_prompt_test_input("flaky")
+    all_following = _track_uploaded_voice_prompt_followers(
+        monkeypatch,
+        worker_count - 1,
+    )
+
+    def on_create(**kwargs):
+        nonlocal calls
+        del kwargs
+        with calls_lock:
+            calls += 1
+            call = calls
+        if call == 1:
+            entered.set()
+            assert release.wait(timeout=5)
+            raise ValueError("uploaded voice boom")
+        return 9
+
+    wrapper = _UploadedVoicePromptTestWrapper(on_create)
+    errors: list[Exception] = []
+
+    def worker() -> None:
+        try:
+            start.wait(timeout=5)
+            qwen3_request_builders._get_or_create_qwen3_tts_uploaded_voice_prompt(
+                state,
+                wrapper,
+                cache_key,
+            )
+        except Exception as exc:
+            errors.append(exc)
+
+    threads = [threading.Thread(target=worker) for _ in range(worker_count)]
+    for thread in threads:
+        thread.start()
+    try:
+        assert entered.wait(timeout=5)
+        assert all_following.wait(timeout=5)
+    finally:
+        release.set()
+        for thread in threads:
+            thread.join(timeout=5)
+
+    assert all(not thread.is_alive() for thread in threads)
+    assert calls == 1
+    assert len(errors) == worker_count
+    assert all(isinstance(error, ValueError) for error in errors)
+    assert all(str(error) == "uploaded voice boom" for error in errors)
+    assert cache.get(cache_key) is None
+    assert cache_key not in qwen3_request_builders._UPLOADED_VOICE_PROMPT_INFLIGHT
+
+    prompt, ref_text = (
+        qwen3_request_builders._get_or_create_qwen3_tts_uploaded_voice_prompt(
+            state,
+            wrapper,
+            cache_key,
+        )
+    )
+    assert calls == 2
+    assert ref_text == "flaky reference"
+    assert int(prompt["ref_code"][0].item()) == 9
+    assert isinstance(cache.get(cache_key), dict)
 
 
 def test_qwen3_tts_adhoc_voice_clone_prompt_uses_reference_service(
@@ -2486,7 +2764,6 @@ def test_qwen3_tts_request_data_keeps_decode_tensors_on_prepared_device(
     )
 
     assert data.prompt_input_embeds is prepared.prompt_input_embeds
-    assert data.prefill_input_embeds is prepared.prompt_input_embeds
     assert data.ref_code is prepared.ref_code
     assert data.tts_pad_embed is prepared.tts_pad_embed
     assert data.stream_codec_output is True
@@ -2578,56 +2855,6 @@ def test_qwen3_tts_request_data_uses_public_seed_split(
     assert data.semantic_sampling_seed == expected_semantic_seed
     assert data.subtalker_sampling_seed == expected_subtalker_seed
     assert data.req.sampling_params.sampling_seed == expected_semantic_seed
-
-
-def _stage_qwen3_tts_prepared(payload: StagePayload) -> None:
-    prepared = Qwen3TTSPreparedRequest(
-        state=Qwen3TTSState(),
-        input_ids_list=[11, 12, 13],
-        input_ids=torch.tensor([11, 12, 13], dtype=torch.long),
-        attention_mask=torch.ones((1, 3), dtype=torch.long),
-        trailing_text_hidden=torch.randn(1, 4),
-        ref_code=None,
-        prompt_input_embeds=torch.randn(3, 4),
-        tts_pad_embed=torch.randn(4),
-        gen_kwargs={"max_new_tokens": 16},
-    )
-    payload.data = {
-        qwen3_request_builders._QWEN3_TTS_PREPARED_MARKER: payload.request_id
-    }
-    with qwen3_request_builders._PREPARED_REQUESTS_LOCK:
-        qwen3_request_builders._PREPARED_REQUESTS[payload.request_id] = prepared
-
-
-def _build_qwen3_tts_sglang_request(monkeypatch: pytest.MonkeyPatch):
-    install_fake_sglang(monkeypatch)
-    payload = make_payload(inputs="target")
-    _stage_qwen3_tts_prepared(payload)
-    return build_sglang_qwen3_tts_request(
-        payload,
-        model=SimpleNamespace(
-            config=SimpleNamespace(codec_eos_token_id=42, vocab_size=1200)
-        ),
-        wrapper=object(),
-    )
-
-
-def test_qwen3_tts_request_lifetime_extra_key_is_unique_and_survives_retract(
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    first = _build_qwen3_tts_sglang_request(monkeypatch)
-    second = _build_qwen3_tts_sglang_request(monkeypatch)
-
-    assert first.req.rid == second.req.rid
-    assert first.req.extra_key
-    assert second.req.extra_key
-    assert first.req.extra_key.startswith("qwen3_tts:")
-    assert second.req.extra_key.startswith("qwen3_tts:")
-    assert first.req.extra_key != second.req.extra_key
-
-    kept = first.req.extra_key
-    first.req.reset_for_retract()
-    assert first.req.extra_key == kept
 
 
 def test_qwen3_tts_prepared_payload_missing_state_fails_without_rebuild(

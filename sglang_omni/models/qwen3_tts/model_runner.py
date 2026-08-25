@@ -369,7 +369,6 @@ class Qwen3TTSModelRunner(ModelRunner):
                     device=decode_feedback_embedding.weight.device
                 )
                 combined = self.model.get_input_embeddings()(token_id).reshape(-1)
-            QwenTalkerModelRunner._append_decode_input_history(sched_req.data, combined)
             rows.append(combined)
         with torch.no_grad():
             torch.stack(rows, dim=0, out=decode_feedback_embedding.weight[:batch_size])
@@ -403,23 +402,10 @@ class Qwen3TTSModelRunner(ModelRunner):
             req = data.req
             req_len = int(req.extend_range.length)
             prefix_len = len(req.prefix_indices)
-            if data.prefill_input_embeds is None:
-                data.prefill_input_embeds = data.prompt_input_embeds
-            if data.prefill_input_embeds is None:
+            prompt_embeds = data.prompt_input_embeds
+            if prompt_embeds is None:
                 raise RuntimeError("Qwen3-TTS prefill requires prompt_input_embeds")
-            piece = QwenTalkerModelRunner._projected_prefill_slice(
-                sched_req=sched_req,
-                prefix_len=prefix_len,
-                extend_len=req_len,
-                device=forward_batch.input_ids.device,
-            )
-            if piece is None or int(piece.shape[0]) != req_len:
-                have = 0 if piece is None else int(piece.shape[0])
-                raise RuntimeError(
-                    f"Qwen3-TTS prefill embed mismatch for {req.rid}: "
-                    f"have {have} rows, need {req_len}"
-                )
-            pieces.append(piece)
+            pieces.append(prompt_embeds[prefix_len : prefix_len + req_len])
         return torch.cat(pieces, dim=0).to(
             device=forward_batch.input_ids.device,
             dtype=next(self.model.parameters()).dtype,
