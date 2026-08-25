@@ -1,0 +1,80 @@
+2026-08-24 11:11:27,407 DEBUG Loading /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+2026-08-24 11:11:27,408 DEBUG Loading /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+2026-08-24 11:11:27,421 DEBUG Skipping import of cpp extensions: operator torchao::_linear_8bit_act_1bit_weight does not exist
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 6720.94it/s]
+2026-08-24 11:11:31,040 INFO input frame rate=25
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/pyworld/__init__.py:13: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py:153: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+2026-08-24 11:11:34,350 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:11:34,797 DEBUG https://modelscope.cn:443 "GET /openapi/v1/models/pengzhendong/wetext HTTP/1.1" 200 1309
+2026-08-24 11:11:34,803 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:11:35,020 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo/files?Revision=master&Recursive=True HTTP/1.1" 403 137
+2026-08-24 11:11:35,021 INFO no frontend is avaliable
+  0%|          | 0/1 [00:00<?, ?it/s]/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchaudio/__init__.py:86: UserWarning: The 'backend' parameter is not used by TorchCodec AudioDecoder.
+  return load_with_torchcodec(
+2026-08-24 11:11:39,322 INFO synthesis text 收到好友从远方寄来的生日礼物，那份意外的惊喜与深深的祝福让我心中充满了甜蜜的快乐，笑容如花儿般绽放。
+/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/model.py:103: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with self.llm_context, torch.cuda.amp.autocast(self.fp16 is True and hasattr(self.llm, 'vllm') is False):
+Exception in thread Thread-1 (llm_job):
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/model.py", line 121, in llm_job
+    for i in token_generator:
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 40, in generator_context
+    response = gen.send(None)
+               ^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/llm/llm.py", line 479, in inference
+    assert 151646 in text, '<|endofprompt|> not detected in CosyVoice3 text or prompt_text, check your input!'
+           ^^^^^^^^^^^^^^
+AssertionError: <|endofprompt|> not detected in CosyVoice3 text or prompt_text, check your input!
+/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/model.py:426: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(self.fp16):
+  0%|          | 0/1 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/cosyvoice.py", line 99, in inference_zero_shot
+    for model_output in self.model.tts(**model_input, stream=stream, speed=speed):
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/model.py", line 379, in tts
+    this_tts_speech = self.token2wav(token=this_tts_speech_token,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/model.py", line 447, in token2wav
+    tts_speech, _ = self.hift.inference(speech_feat=tts_mel, finalize=finalize)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/hifigan/generator.py", line 717, in inference
+    f0 = self.f0_predictor(speech_feat.to(torch.float64), finalize=finalize).to(speech_feat)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/hifigan/f0_predictor.py", line 97, in forward
+    x = self.condnet[0](x)
+        ^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/transformer/convolution.py", line 185, in forward
+    x = super(CausalConv1d, self).forward(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 375, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 370, in _conv_forward
+    return F.conv1d(
+           ^^^^^^^^^
+RuntimeError: Calculated padded input size per channel: (3). Kernel size: (4). Kernel size can't be greater than actual input size

@@ -1,0 +1,120 @@
+{
+  "commit": "14cce65",
+  "mode": "concurrent_reference_preprocessing",
+  "scheduler_max_concurrency": 1,
+  "scheduler_max_batch_size": 8,
+  "scheduler_max_batch_wait_ms": 4.0,
+  "reference_max_batch_size": 8,
+  "reference_max_batch_wait_ms": 4.0,
+  "warmup_iterations_per_shape": 2,
+  "measured_iterations_per_shape": 5,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "torch": "2.11.0+cu130",
+  "onnxruntime": "1.29.0",
+  "s3_backend": "s3tokenizer==0.3.0",
+  "rows": [
+    {
+      "concurrent_references": 1,
+      "p50_ms": 135.67,
+      "p95_ms": 137.12,
+      "items_per_s": 7.371,
+      "samples_ms": [
+        137.12,
+        135.67,
+        135.3,
+        136.05,
+        135.13
+      ],
+      "observed_batch_sizes": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "token_lengths": [
+        198
+      ]
+    },
+    {
+      "concurrent_references": 2,
+      "p50_ms": 258.12,
+      "p95_ms": 272.69,
+      "items_per_s": 7.748,
+      "samples_ms": [
+        255.27,
+        269.75,
+        272.69,
+        258.12,
+        257.34
+      ],
+      "observed_batch_sizes": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "token_lengths": [
+        198,
+        185
+      ]
+    },
+    {
+      "concurrent_references": 4,
+      "p50_ms": 599.34,
+      "p95_ms": 633.68,
+      "items_per_s": 6.674,
+      "samples_ms": [
+        599.34,
+        578.06,
+        603.9,
+        633.68,
+        589.23
+      ],
+      "observed_batch_sizes": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "token_lengths": [
+        198,
+        185,
+        229,
+        278
+      ]
+    },
+    {
+      "concurrent_references": 8,
+      "p50_ms": 1164.07,
+      "p95_ms": 1215.09,
+      "items_per_s": 6.872,
+      "samples_ms": [
+        1164.07,
+        1145.79,
+        1151.37,
+        1168.87,
+        1215.09
+      ],
+      "observed_batch_sizes": [
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "token_lengths": [
+        198,
+        185,
+        229,
+        278,
+        191,
+        188,
+        145,
+        254
+      ]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "baseline_commit": "507cfaa0d42ce459b446ea53e72c4ddc357b4a83",
+  "pr_commit": "40a0eef731edc834bd205be649535c11d150c832",
+  "all_equal": true,
+  "total_equal_tokens": 1668,
+  "total_tokens": 1668,
+  "rows": [
+    {
+      "audio": "control-tokens-test1.wav",
+      "shape": [
+        1,
+        198
+      ],
+      "equal": true,
+      "equal_tokens": 198,
+      "total_tokens": 198
+    },
+    {
+      "audio": "control-tokens-test2.wav",
+      "shape": [
+        1,
+        185
+      ],
+      "equal": true,
+      "equal_tokens": 185,
+      "total_tokens": 185
+    },
+    {
+      "audio": "control-tokens-test3.wav",
+      "shape": [
+        1,
+        229
+      ],
+      "equal": true,
+      "equal_tokens": 229,
+      "total_tokens": 229
+    },
+    {
+      "audio": "control-tokens-test4.wav",
+      "shape": [
+        1,
+        278
+      ],
+      "equal": true,
+      "equal_tokens": 278,
+      "total_tokens": 278
+    },
+    {
+      "audio": "control-tokens-test5.wav",
+      "shape": [
+        1,
+        191
+      ],
+      "equal": true,
+      "equal_tokens": 191,
+      "total_tokens": 191
+    },
+    {
+      "audio": "female-voice.wav",
+      "shape": [
+        1,
+        188
+      ],
+      "equal": true,
+      "equal_tokens": 188,
+      "total_tokens": 188
+    },
+    {
+      "audio": "male-voice.wav",
+      "shape": [
+        1,
+        145
+      ],
+      "equal": true,
+      "equal_tokens": 145,
+      "total_tokens": 145
+    },
+    {
+      "audio": "ref_voice.wav",
+      "shape": [
+        1,
+        254
+      ],
+      "equal": true,
+      "equal_tokens": 254,
+      "total_tokens": 254
+    }
+  ]
+}

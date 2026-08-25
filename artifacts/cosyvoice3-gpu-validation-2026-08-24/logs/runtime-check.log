@@ -1,0 +1,43 @@
+Error processing line 1 of /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/00-cosyvoice3-sources.pth:
+
+  Traceback (most recent call last):
+    File "<frozen site>", line 195, in addpackage
+    File "<string>", line 1
+      import sys; sys.path.insert(0, /root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice); sys.path.insert(0, /root/autodl-tmp/cosyvoice3-s3-batching/src/sglang-omni)
+                                     ^
+  SyntaxError: invalid syntax
+
+Remainder of file ignored
+Error processing line 1 of /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/00-cosyvoice3-sources.pth:
+
+  Traceback (most recent call last):
+    File "<frozen site>", line 195, in addpackage
+    File "<string>", line 1
+      import sys; sys.path.insert(0, /root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice); sys.path.insert(0, /root/autodl-tmp/cosyvoice3-s3-batching/src/sglang-omni)
+                                     ^
+  SyntaxError: invalid syntax
+
+Remainder of file ignored
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'cosyvoice'
+2026-08-24 10:38:27,070 DEBUG Loading /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+2026-08-24 10:38:27,072 DEBUG Loading /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+2026-08-24 10:38:27,091 DEBUG Skipping import of cpp extensions: operator torchao::_linear_8bit_act_1bit_weight does not exist
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+AttributeError: module 's3tokenizer' has no attribute '__version__'
+2026-08-24 10:39:05,864 DEBUG Loading /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+2026-08-24 10:39:05,867 DEBUG Loading /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+2026-08-24 10:39:05,884 DEBUG Skipping import of cpp extensions: operator torchao::_linear_8bit_act_1bit_weight does not exist
+s3tokenizer /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/s3tokenizer/__init__.py
+sglang_omni /root/autodl-tmp/cosyvoice3-s3-batching/src/sglang-omni/sglang_omni/__init__.py
+cosyvoice cosyvoice.cli.cosyvoice
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/utils.py:223: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  warnings.warn(
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/sglang/srt/layers/quantization/awq/awq.py:52: UserWarning: Only CUDA, HIP and XPU support AWQ currently.
+  warnings.warn(f"Only CUDA, HIP and XPU support AWQ currently.")
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/sglang/srt/layers/quantization/gguf.py:69: UserWarning: Only CUDA, MUSA and NPU support GGUF quantization currently.
+  warnings.warn(f"Only CUDA, MUSA and NPU support GGUF quantization currently.")
+W0824 10:40:32.266000 1846 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+fun-cosyvoice3-imports-ok

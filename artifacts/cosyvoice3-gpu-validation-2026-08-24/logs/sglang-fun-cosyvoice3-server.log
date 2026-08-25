@@ -1,0 +1,113 @@
+Usage: sgl-omni serve [OPTIONS]
+Try 'sgl-omni serve --help' for help.
+╭─ Error ──────────────────────────────────────────────────────────────────────╮
+│ Invalid value: --talker-cuda-graph is not supported by                       │
+│ FunCosyVoice3PipelineConfig                                                  │
+╰──────────────────────────────────────────────────────────────────────────────╯
+2026-08-24 11:17:03,045 [ERROR] sglang_omni.relay.nixl: Failed to import nixl: No module named 'nixl'. NixlRelay will not work.
+2026-08-24 11:17:03,114 [INFO] sglang_omni.utils.gpu_compat: Applied GPU compatibility env override: FLASHINFER_USE_CUDA_NORM=1
+2026-08-24 11:17:03,216 [INFO] sglang_omni.pipeline.control_plane: Coordinator control plane started
+2026-08-24 11:17:03,216 [INFO] sglang_omni.pipeline.coordinator: Coordinator started
+2026-08-24 11:17:03,219 [INFO] sglang_omni.pipeline.stage_workers: StageGroup pipeline: spawned 1 process(es) (pids=[3918])
+Failed to import nixl: No module named 'nixl'. NixlRelay will not work.
+2026-08-24 11:17:09,293 [INFO] stage_workers.pipeline: Building scheduler for preprocessing (tp_rank=0/1) ...
+2026-08-24 11:17:11,031 [INFO] stage_workers.pipeline: Set current device to 0 for stage tts_engine
+2026-08-24 11:17:11,031 [INFO] stage_workers.pipeline: Building scheduler for tts_engine (tp_rank=0/1) ...
+2026-08-24 11:17:11,031 [INFO] stage_workers.pipeline: Acquired GPU startup lock for stage tts_engine: /tmp/sglang_omni_gpu_0_startup.lock
+2026-08-24 11:17:11,143 [INFO] sglang.srt.arg_groups.overrides: Attention backend not specified. Use flashinfer backend by default.
+2026-08-24 11:17:11,156 [INFO] sglang_omni.scheduling.bootstrap: SGLang runtime configuration: gpu_id=0, sm=120, architecture=blackwell, attention_backend=flashinfer, decode_attention_backend=flashinfer, prefill_attention_backend=flashinfer, sampling_backend=pytorch
+2026-08-24 11:17:11,156 [INFO] sglang_omni.platforms.cuda: Configured SGLang backend policy: arch=FunCosyVoice3SGLangModel effective_quantization=None server_quantization=None moe_runner_backend=auto fp8_gemm_backend=auto
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+2026-08-24 11:17:15,029 [INFO] sglang.srt.distributed.bootstrap: Init torch distributed begin.
+2026-08-24 11:17:15,241 [INFO] sglang.srt.distributed.bootstrap: Init torch distributed ends. elapsed=0.21 s, mem usage=0.11 GB
+2026-08-24 11:17:15,247 [INFO] sglang.srt.model_executor.model_runner: Load weight begin. avail mem=30.69 GB
+Multi-thread loading shards:   0% Completed | 0/1 [00:00<?, ?it/s]Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00, 132.35it/s]
+2026-08-24 11:17:15,577 [INFO] sglang.srt.model_executor.model_runner: Load weight end. elapsed=0.33 s, type=FunCosyVoice3SGLangModel, avail mem=29.69 GB, mem usage=1.00 GB.
+2026-08-24 11:17:15,598 [INFO] sglang.srt.mem_cache.memory_pool: KV Cache is allocated. dtype: torch.bfloat16, #tokens: 2190868, K size: 12.54 GB, V size: 12.54 GB
+2026-08-24 11:17:15,598 [INFO] sglang.srt.mem_cache.kv_cache_configurator: Memory pool end. avail mem=4.54 GB
+2026-08-24 11:17:15,771 [INFO] sglang_omni.models.fun_cosyvoice3.engine_builder: Loading CosyVoice3 fine-tuned weights from /root/autodl-tmp/cosyvoice3-s3-batching/models/Fun-CosyVoice3-0.5B-2512/llm.pt
+2026-08-24 11:17:17,249 [INFO] sglang_omni.models.fun_cosyvoice3.engine_builder: CosyVoice3 weights loaded
+2026-08-24 11:17:21,909 [INFO] sglang.srt.model_executor.model_runner_components.cuda_graph_setup: Disable prefill CUDA graph because cuda_graph_config resolved prefill.backend='disabled' (e.g. via --cuda-graph-backend-prefill=disabled or auto-disable rules).
+2026-08-24 11:17:21,910 [INFO] sglang.srt.model_executor.model_runner_components.cuda_graph_setup: Capture target decode CUDA graph begin. backend=full, num_tokens_per_req=1, bs=[1, 2], avail mem=3.05 GB
+  0%|          | 0/2 [00:00<?, ?it/s]Capturing batches (bs=2 avail_mem=3.05 GB):   0%|          | 0/2 [00:00<?, ?it/s]Capturing batches (bs=2 avail_mem=3.05 GB):  50%|█████     | 1/2 [00:25<00:25, 25.16s/it]Capturing batches (bs=1 avail_mem=3.03 GB):  50%|█████     | 1/2 [00:25<00:25, 25.16s/it]Capturing batches (bs=1 avail_mem=3.03 GB): 100%|██████████| 2/2 [00:25<00:00, 12.61s/it]
+2026-08-24 11:17:47,992 [INFO] sglang.srt.model_executor.model_runner_components.cuda_graph_setup: Capture target decode CUDA graph end. elapsed=26.08 s, mem usage=0.04 GB, avail mem=3.01 GB.
+2026-08-24 11:17:48,016 [INFO] stage_workers.pipeline: Set current device to 0 for stage vocoder
+2026-08-24 11:17:48,016 [INFO] stage_workers.pipeline: Building scheduler for vocoder (tp_rank=0/1) ...
+2026-08-24 11:17:48,017 [INFO] stage_workers.pipeline: Acquired GPU startup lock for stage vocoder: /tmp/sglang_omni_gpu_0_startup.lock
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 10891.66it/s]
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/pyworld/__init__.py:13: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py:153: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+2026-08-24 11:17:57,929 [INFO] sglang_omni.pipeline.stage_workers: Process pipeline ready
+2026-08-24 11:17:57,929 [INFO] sglang_omni.pipeline.coordinator: Coordinator registered stage: preprocessing at ipc:///tmp/sglang_omni/funaudiollm-fun-cosyvoice3-0-5b-2512-8997vzze/stage_preprocessing.sock
+2026-08-24 11:17:57,929 [INFO] sglang_omni.pipeline.coordinator: Coordinator registered stage: tts_engine at ipc:///tmp/sglang_omni/funaudiollm-fun-cosyvoice3-0-5b-2512-8997vzze/stage_tts_engine.sock
+2026-08-24 11:17:57,929 [INFO] sglang_omni.pipeline.coordinator: Coordinator registered stage: vocoder at ipc:///tmp/sglang_omni/funaudiollm-fun-cosyvoice3-0-5b-2512-8997vzze/stage_vocoder.sock
+2026-08-24 11:17:57,929 [INFO] sglang_omni.pipeline.mp_runner: MultiProcessPipelineRunner started: 3 stage(s), 1 process(es)
+2026-08-24 11:17:57,930 [INFO] sglang_omni.serve.launcher: Resolved placement/topology plan: placement={'topology': 'FunCosyVoice3PipelineConfig', 'pipeline': 'FunAudioLLM/Fun-CosyVoice3-0.5B-2512', 'process_groups': {'pipeline': {'stages': ['preprocessing', 'tts_engine', 'vocoder'], 'gpu': 0}}, 'tp_process_groups': {}, 'stage_runtime': {'tts_engine': {'gpu': 0, 'total_gpu_memory_fraction': None, 'mem_fraction_static': None}, 'vocoder': {'gpu': 0, 'total_gpu_memory_fraction': None, 'mem_fraction_static': None}}, 'gpus': {0: {'hardware': {'device_id': 0, 'name': 'NVIDIA GeForce RTX 5090', 'total_memory': '31.84GiB'}, 'stages': ['tts_engine', 'vocoder'], 'total_gpu_memory_fraction': 0.0, 'missing_fraction_stages': ['tts_engine', 'vocoder']}}}
+2026-08-24 11:17:57,930 [INFO] sglang_omni.serve.launcher: Model capabilities: {"architecture": "FunCosyVoice3SGLangModel", "batch_vocoder": true, "breakable_prefill_cuda_graph": false, "cuda_graph": true, "reference_audio": true, "streaming_vocoder": false, "torch_compile": true}
+2026-08-24 11:17:57,930 [INFO] sglang_omni.serve.launcher: Pipeline 'FunAudioLLM/Fun-CosyVoice3-0.5B-2512' started (1 GPU(s))
+INFO:     Started server process [3852]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-08-24 11:19:01,201 [ERROR] sglang_omni.relay.nixl: Failed to import nixl: No module named 'nixl'. NixlRelay will not work.
+2026-08-24 11:19:01,224 [INFO] sglang_omni.utils.gpu_compat: Applied GPU compatibility env override: FLASHINFER_USE_CUDA_NORM=1
+2026-08-24 11:19:01,325 [INFO] sglang_omni.pipeline.control_plane: Coordinator control plane started
+2026-08-24 11:19:01,325 [INFO] sglang_omni.pipeline.coordinator: Coordinator started
+2026-08-24 11:19:01,327 [INFO] sglang_omni.pipeline.stage_workers: StageGroup pipeline: spawned 1 process(es) (pids=[4479])
+Failed to import nixl: No module named 'nixl'. NixlRelay will not work.
+2026-08-24 11:19:07,279 [INFO] stage_workers.pipeline: Building scheduler for preprocessing (tp_rank=0/1) ...
+2026-08-24 11:19:08,996 [INFO] stage_workers.pipeline: Set current device to 0 for stage tts_engine
+2026-08-24 11:19:08,996 [INFO] stage_workers.pipeline: Building scheduler for tts_engine (tp_rank=0/1) ...
+2026-08-24 11:19:08,996 [INFO] stage_workers.pipeline: Acquired GPU startup lock for stage tts_engine: /tmp/sglang_omni_gpu_0_startup.lock
+2026-08-24 11:19:09,062 [INFO] sglang.srt.arg_groups.overrides: Attention backend not specified. Use flashinfer backend by default.
+2026-08-24 11:19:09,067 [INFO] sglang_omni.scheduling.bootstrap: SGLang runtime configuration: gpu_id=0, sm=120, architecture=blackwell, attention_backend=flashinfer, decode_attention_backend=flashinfer, prefill_attention_backend=flashinfer, sampling_backend=pytorch
+2026-08-24 11:19:09,068 [INFO] sglang_omni.platforms.cuda: Configured SGLang backend policy: arch=FunCosyVoice3SGLangModel effective_quantization=None server_quantization=None moe_runner_backend=auto fp8_gemm_backend=auto
+Unable to import `torchao` Tensor objects. This may affect loading checkpoints serialized with `torchao`
+2026-08-24 11:19:12,764 [INFO] sglang.srt.distributed.bootstrap: Init torch distributed begin.
+2026-08-24 11:19:12,975 [INFO] sglang.srt.distributed.bootstrap: Init torch distributed ends. elapsed=0.21 s, mem usage=0.11 GB
+2026-08-24 11:19:12,985 [INFO] sglang.srt.model_executor.model_runner: Load weight begin. avail mem=30.69 GB
+Multi-thread loading shards:   0% Completed | 0/1 [00:00<?, ?it/s]Multi-thread loading shards: 100% Completed | 1/1 [00:00<00:00, 114.74it/s]
+2026-08-24 11:19:13,368 [INFO] sglang.srt.model_executor.model_runner: Load weight end. elapsed=0.38 s, type=FunCosyVoice3SGLangModel, avail mem=29.69 GB, mem usage=1.00 GB.
+2026-08-24 11:19:13,386 [INFO] sglang.srt.mem_cache.memory_pool: KV Cache is allocated. dtype: torch.bfloat16, #tokens: 1787800, K size: 10.23 GB, V size: 10.23 GB
+2026-08-24 11:19:13,386 [INFO] sglang.srt.mem_cache.kv_cache_configurator: Memory pool end. avail mem=9.14 GB
+2026-08-24 11:19:13,559 [INFO] sglang_omni.models.fun_cosyvoice3.engine_builder: Loading CosyVoice3 fine-tuned weights from /root/autodl-tmp/cosyvoice3-s3-batching/models/Fun-CosyVoice3-0.5B-2512/llm.pt
+2026-08-24 11:19:15,101 [INFO] sglang_omni.models.fun_cosyvoice3.engine_builder: CosyVoice3 weights loaded
+2026-08-24 11:19:19,548 [INFO] sglang.srt.model_executor.model_runner_components.cuda_graph_setup: Disable prefill CUDA graph because cuda_graph_config resolved prefill.backend='disabled' (e.g. via --cuda-graph-backend-prefill=disabled or auto-disable rules).
+2026-08-24 11:19:19,548 [INFO] sglang.srt.model_executor.model_runner_components.cuda_graph_setup: Capture target decode CUDA graph begin. backend=full, num_tokens_per_req=1, bs=[1, 2], avail mem=7.67 GB
+  0%|          | 0/2 [00:00<?, ?it/s]Capturing batches (bs=2 avail_mem=7.67 GB):   0%|          | 0/2 [00:00<?, ?it/s]Capturing batches (bs=2 avail_mem=7.67 GB):  50%|█████     | 1/2 [00:00<00:00,  1.50it/s]Capturing batches (bs=1 avail_mem=7.65 GB):  50%|█████     | 1/2 [00:00<00:00,  1.50it/s]Capturing batches (bs=1 avail_mem=7.65 GB): 100%|██████████| 2/2 [00:00<00:00,  2.84it/s]
+2026-08-24 11:19:20,982 [INFO] sglang.srt.model_executor.model_runner_components.cuda_graph_setup: Capture target decode CUDA graph end. elapsed=1.43 s, mem usage=0.04 GB, avail mem=7.63 GB.
+2026-08-24 11:19:20,987 [INFO] stage_workers.pipeline: Set current device to 0 for stage vocoder
+2026-08-24 11:19:20,987 [INFO] stage_workers.pipeline: Building scheduler for vocoder (tp_rank=0/1) ...
+2026-08-24 11:19:20,987 [INFO] stage_workers.pipeline: Acquired GPU startup lock for stage vocoder: /tmp/sglang_omni_gpu_0_startup.lock
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 7382.59it/s]
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/pyworld/__init__.py:13: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py:153: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+2026-08-24 11:19:29,519 | INFO    | modelscope_hub.download | Downloading 26 files from pengzhendong/wetext@master
+Downloading:   0%|          | 0/26 [00:00<?, ?file/s]Downloading: 100%|██████████| 26/26 [00:00<00:00, 1297.94file/s]
+2026-08-24 11:19:30,235 | INFO    | modelscope_hub.download | Downloading 26 files from pengzhendong/wetext@master
+Downloading:   0%|          | 0/26 [00:00<?, ?file/s]Downloading: 100%|██████████| 26/26 [00:00<00:00, 1365.80file/s]
+2026-08-24 11:19:34,812 [INFO] sglang_omni.pipeline.stage_workers: Process pipeline ready
+2026-08-24 11:19:34,813 [INFO] sglang_omni.pipeline.coordinator: Coordinator registered stage: preprocessing at ipc:///tmp/sglang_omni/funaudiollm-fun-cosyvoice3-0-5b-2512-iv8of5ix/stage_preprocessing.sock
+2026-08-24 11:19:34,813 [INFO] sglang_omni.pipeline.coordinator: Coordinator registered stage: tts_engine at ipc:///tmp/sglang_omni/funaudiollm-fun-cosyvoice3-0-5b-2512-iv8of5ix/stage_tts_engine.sock
+2026-08-24 11:19:34,813 [INFO] sglang_omni.pipeline.coordinator: Coordinator registered stage: vocoder at ipc:///tmp/sglang_omni/funaudiollm-fun-cosyvoice3-0-5b-2512-iv8of5ix/stage_vocoder.sock
+2026-08-24 11:19:34,813 [INFO] sglang_omni.pipeline.mp_runner: MultiProcessPipelineRunner started: 3 stage(s), 1 process(es)
+2026-08-24 11:19:34,814 [INFO] sglang_omni.serve.launcher: Resolved placement/topology plan: placement={'topology': 'FunCosyVoice3PipelineConfig', 'pipeline': 'FunAudioLLM/Fun-CosyVoice3-0.5B-2512', 'process_groups': {'pipeline': {'stages': ['preprocessing', 'tts_engine', 'vocoder'], 'gpu': 0}}, 'tp_process_groups': {}, 'stage_runtime': {'tts_engine': {'gpu': 0, 'total_gpu_memory_fraction': None, 'mem_fraction_static': 0.7}, 'vocoder': {'gpu': 0, 'total_gpu_memory_fraction': None, 'mem_fraction_static': None}}, 'gpus': {0: {'hardware': {'device_id': 0, 'name': 'NVIDIA GeForce RTX 5090', 'total_memory': '31.84GiB'}, 'stages': ['tts_engine', 'vocoder'], 'total_gpu_memory_fraction': 0.0, 'missing_fraction_stages': ['tts_engine', 'vocoder']}}}
+2026-08-24 11:19:34,814 [INFO] sglang_omni.serve.launcher: Model capabilities: {"architecture": "FunCosyVoice3SGLangModel", "batch_vocoder": true, "breakable_prefill_cuda_graph": false, "cuda_graph": true, "reference_audio": true, "streaming_vocoder": false, "torch_compile": true}
+2026-08-24 11:19:34,814 [INFO] sglang_omni.serve.launcher: Pipeline 'FunAudioLLM/Fun-CosyVoice3-0.5B-2512' started (1 GPU(s))
+INFO:     Started server process [4410]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2026-08-24 11:20:58,523 [INFO] sglang_omni.pipeline.coordinator: Coordinator submitted req=speech-1748e617-c73f-43a2-a27f-22ca0882dc66 to preprocessing at ipc:///tmp/sglang_omni/funaudiollm-fun-cosyvoice3-0-5b-2512-iv8of5ix/stage_preprocessing.sock
+2026-08-24 11:20:58,541 [INFO] sglang_omni.pipeline.coordinator: Coordinator submitted req=speech-dbd889e1-b103-4815-892d-b748f78a1449 to preprocessing at ipc:///tmp/sglang_omni/funaudiollm-fun-cosyvoice3-0-5b-2512-iv8of5ix/stage_preprocessing.sock
+min value is  tensor(-1.0138)
+INFO:     127.0.0.1:56362 - "POST /v1/audio/speech HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56376 - "POST /v1/audio/speech HTTP/1.1" 200 OK

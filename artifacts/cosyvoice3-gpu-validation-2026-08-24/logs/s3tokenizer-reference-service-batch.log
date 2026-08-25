@@ -1,0 +1,5 @@
+min value is  tensor(-1.0138)
+artifact_token_shapes [(1, 87), (1, 344)]
+artifact_mel_shapes [(1, 174, 80), (1, 686, 80)]
+reference_service_stats {'hits': 0, 'misses': 2, 'merged': 0, 'entries': 2, 'bytes': 280180, 'evictions': 0, 'failed': 0, 'uncacheable': 0, 'batches': 1, 'batched_items': 2}
+reference-service-real-batch-ok

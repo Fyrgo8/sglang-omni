@@ -1,0 +1,87 @@
+{
+  "commit": "40a0eef731edc834bd205be649535c11d150c832",
+  "mode": "batched_s3_tokenizer",
+  "max_batch_size": 8,
+  "warmup_iterations_per_shape": 2,
+  "measured_iterations_per_shape": 5,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "torch": "2.11.0+cu130",
+  "s3_backend": "s3tokenizer==0.3.0",
+  "rows": [
+    {
+      "concurrent_references": 1,
+      "p50_ms": 10.19,
+      "p95_ms": 10.71,
+      "items_per_s": 98.145,
+      "samples_ms": [
+        10.71,
+        10.19,
+        9.64,
+        10.33,
+        9.94
+      ],
+      "token_lengths": [
+        198
+      ]
+    },
+    {
+      "concurrent_references": 2,
+      "p50_ms": 12.6,
+      "p95_ms": 13.16,
+      "items_per_s": 158.739,
+      "samples_ms": [
+        13.16,
+        12.68,
+        12.58,
+        12.6,
+        12.37
+      ],
+      "token_lengths": [
+        198,
+        185
+      ]
+    },
+    {
+      "concurrent_references": 4,
+      "p50_ms": 22.03,
+      "p95_ms": 22.28,
+      "items_per_s": 181.551,
+      "samples_ms": [
+        22.2,
+        21.96,
+        22.03,
+        22.28,
+        21.81
+      ],
+      "token_lengths": [
+        198,
+        185,
+        229,
+        278
+      ]
+    },
+    {
+      "concurrent_references": 8,
+      "p50_ms": 48.77,
+      "p95_ms": 50.16,
+      "items_per_s": 164.05,
+      "samples_ms": [
+        48.3,
+        48.11,
+        48.77,
+        49.32,
+        50.16
+      ],
+      "token_lengths": [
+        198,
+        185,
+        229,
+        278,
+        191,
+        188,
+        145,
+        254
+      ]
+    }
+  ]
+}

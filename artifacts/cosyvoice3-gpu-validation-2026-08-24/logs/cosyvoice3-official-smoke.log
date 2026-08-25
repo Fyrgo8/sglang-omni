@@ -1,0 +1,620 @@
+2026-08-24 11:07:12,969 DEBUG Loading /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+2026-08-24 11:07:12,970 DEBUG Loading /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+2026-08-24 11:07:12,986 DEBUG Skipping import of cpp extensions: operator torchao::_linear_8bit_act_1bit_weight does not exist
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 9218.95it/s]
+2026-08-24 11:07:16,582 INFO input frame rate=25
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/pyworld/__init__.py:13: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py:153: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+2026-08-24 11:07:19,994 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:07:20,452 DEBUG https://modelscope.cn:443 "GET /openapi/v1/models/pengzhendong/wetext HTTP/1.1" 200 1309
+2026-08-24 11:07:20,459 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:07:20,703 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo/files?Revision=master&Recursive=True HTTP/1.1" 200 None
+2026-08-24 11:07:20,729 | INFO    | modelscope_hub.download | Downloading 26 files from pengzhendong/wetext@master
+2026-08-24 11:07:20,733 DEBUG Attempting to acquire lock 140409603942512 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext__gitattributes.lock
+2026-08-24 11:07:20,733 DEBUG Lock 140409603942512 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext__gitattributes.lock
+Downloading:   0%|          | 0/26 [00:00<?, ?file/s]2026-08-24 11:07:20,736 DEBUG Attempting to acquire lock 140409603949824 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext___init___py.lock
+2026-08-24 11:07:20,736 DEBUG Attempting to acquire lock 140409603949536 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en_tn_tagger_fst.lock
+2026-08-24 11:07:20,736 DEBUG Attempting to acquire lock 140409603949584 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_configuration_json.lock
+2026-08-24 11:07:20,738 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:07:20,738 DEBUG Lock 140409603949824 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext___init___py.lock
+2026-08-24 11:07:20,738 DEBUG Lock 140409603949536 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en_tn_tagger_fst.lock
+2026-08-24 11:07:20,739 DEBUG Lock 140409603949584 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_configuration_json.lock
+2026-08-24 11:07:20,741 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:07:20,743 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:07:20,743 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:07:21,000 DEBUG https://modelscope.cn:443 "GET /api/v1/repos/internalAccelerationInfo HTTP/1.1" 200 188
+2026-08-24 11:07:21,001 DEBUG Starting new HTTP connection (1): 100.100.100.200:80
+2026-08-24 11:07:21,008 DEBUG https://modelscope.cn:443 "GET /api/v1/repos/internalAccelerationInfo HTTP/1.1" 200 188
+2026-08-24 11:07:21,009 DEBUG Starting new HTTP connection (1): 100.100.100.200:80
+2026-08-24 11:07:21,012 DEBUG https://modelscope.cn:443 "GET /api/v1/repos/internalAccelerationInfo HTTP/1.1" 200 188
+2026-08-24 11:07:21,013 DEBUG Starting new HTTP connection (1): 100.100.100.200:80
+2026-08-24 11:07:21,030 DEBUG https://modelscope.cn:443 "GET /api/v1/repos/internalAccelerationInfo HTTP/1.1" 200 188
+2026-08-24 11:07:21,031 DEBUG Starting new HTTP connection (1): 100.100.100.200:80
+2026-08-24 11:07:21,211 DEBUG Starting new HTTPS connection (2): modelscope.cn:443
+2026-08-24 11:07:21,215 DEBUG Starting new HTTPS connection (3): modelscope.cn:443
+2026-08-24 11:07:21,234 DEBUG Starting new HTTPS connection (4): modelscope.cn:443
+2026-08-24 11:07:21,298 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=__init__.py HTTP/1.1" 200 0
+
+__init__.py: 0.00B [00:00, ?B/s][A
+                                [A2026-08-24 11:07:21,300 DEBUG Attempting to release lock 140409603949824 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext___init___py.lock
+2026-08-24 11:07:21,300 DEBUG Lock 140409603949824 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext___init___py.lock
+Downloading:   4%|▍         | 1/26 [00:00<00:14,  1.77file/s]2026-08-24 11:07:21,301 DEBUG Attempting to acquire lock 140409603952128 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en_tn_verbalizer_fst.lock
+2026-08-24 11:07:21,302 DEBUG Lock 140409603952128 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en_tn_verbalizer_fst.lock
+2026-08-24 11:07:21,469 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=en_tn_verbalizer.fst HTTP/1.1" 302 346
+2026-08-24 11:07:21,472 DEBUG Starting new HTTPS connection (1): cdn-lfs-cn-1.modelscope.cn:443
+2026-08-24 11:07:21,544 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=en_tn_tagger.fst HTTP/1.1" 302 342
+2026-08-24 11:07:21,546 DEBUG Starting new HTTPS connection (2): cdn-lfs-cn-1.modelscope.cn:443
+2026-08-24 11:07:21,568 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=.gitattributes HTTP/1.1" 200 2063
+
+.gitattributes:   0%|          | 0.00/2.06k [00:00<?, ?B/s][A
+                                                           [A2026-08-24 11:07:21,575 DEBUG Attempting to release lock 140409603942512 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext__gitattributes.lock
+2026-08-24 11:07:21,576 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=configuration.json HTTP/1.1" 200 36
+
+configuration.json:   0%|          | 0.00/36.0 [00:00<?, ?B/s][A2026-08-24 11:07:21,577 DEBUG Lock 140409603942512 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext__gitattributes.lock
+2026-08-24 11:07:21,578 DEBUG Attempting to acquire lock 140423210140784 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_full_to_half_fst.lock
+Downloading:   8%|▊         | 2/26 [00:00<00:09,  2.53file/s]
+                                                              [A2026-08-24 11:07:21,578 DEBUG Lock 140423210140784 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_full_to_half_fst.lock
+2026-08-24 11:07:21,579 DEBUG Attempting to release lock 140409603949584 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_configuration_json.lock
+2026-08-24 11:07:21,579 DEBUG Lock 140409603949584 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_configuration_json.lock
+2026-08-24 11:07:21,581 DEBUG Attempting to acquire lock 140409603951696 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_README_md.lock
+2026-08-24 11:07:21,581 DEBUG Lock 140409603951696 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_README_md.lock
+2026-08-24 11:07:21,686 DEBUG https://cdn-lfs-cn-1.modelscope.cn:443 "GET /prod/lfs-objects/2d/3c/0ef6fd2b82be3e36c581786531735be106e693e5a4396642d3f3907fd7b9?filename=en_tn_verbalizer.fst&namespace=pengzhendong&repository=wetext&revision=master&tag=model&auth_key=1787540841-142992ea6ba946cdaa8b6371d00cd73e-0-e196ceee00665be9644e9e7a7028d602 HTTP/1.1" 200 2040454
+
+en_tn_verbalizer.fst:   0%|          | 0.00/2.04M [00:00<?, ?B/s][A2026-08-24 11:07:21,688 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=full_to_half.fst HTTP/1.1" 200 15634
+
+
+full_to_half.fst:   0%|          | 0.00/15.6k [00:00<?, ?B/s][A[A
+
+                                                             [A[A2026-08-24 11:07:21,713 DEBUG Attempting to release lock 140423210140784 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_full_to_half_fst.lock
+2026-08-24 11:07:21,714 DEBUG Lock 140423210140784 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_full_to_half_fst.lock
+Downloading:  15%|█▌        | 4/26 [00:00<00:04,  5.25file/s]2026-08-24 11:07:21,715 DEBUG Attempting to acquire lock 140412145498304 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_remove_interjections_fst.lock
+2026-08-24 11:07:21,715 DEBUG Lock 140412145498304 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_remove_interjections_fst.lock
+2026-08-24 11:07:21,722 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=README.md HTTP/1.1" 200 1389
+
+
+README.md:   0%|          | 0.00/1.39k [00:00<?, ?B/s][A[A
+
+                                                      [A[A2026-08-24 11:07:21,724 DEBUG Attempting to release lock 140409603951696 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_README_md.lock
+2026-08-24 11:07:21,725 DEBUG Lock 140409603951696 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_README_md.lock
+2026-08-24 11:07:21,726 DEBUG Attempting to acquire lock 140409603950928 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_remove_puncts_fst.lock
+2026-08-24 11:07:21,726 DEBUG Lock 140409603950928 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_remove_puncts_fst.lock
+2026-08-24 11:07:21,745 DEBUG https://cdn-lfs-cn-1.modelscope.cn:443 "GET /prod/lfs-objects/53/c6/02049b21c8041c6c1e2e28315315e236eee2944fbab059f46ee3654d51bd?filename=en_tn_tagger.fst&namespace=pengzhendong&repository=wetext&revision=master&tag=model&auth_key=1787540841-b9c4e4c4301e4821a05c3a9029ab2b0a-0-acf770cb9379c03b64330891bc325541 HTTP/1.1" 200 5731710
+
+
+en_tn_tagger.fst:   0%|          | 0.00/5.73M [00:00<?, ?B/s][A[A
+en_tn_verbalizer.fst: 100%|██████████| 2.04M/2.04M [00:00<00:00, 19.7MB/s][A
+                                                                          [A2026-08-24 11:07:21,797 DEBUG Attempting to release lock 140409603952128 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en_tn_verbalizer_fst.lock
+2026-08-24 11:07:21,798 DEBUG Lock 140409603952128 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en_tn_verbalizer_fst.lock
+2026-08-24 11:07:21,799 DEBUG Attempting to acquire lock 140409603957840 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_tag_oov_fst.lock
+2026-08-24 11:07:21,799 DEBUG Lock 140409603957840 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_tag_oov_fst.lock
+2026-08-24 11:07:21,823 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=remove_interjections.fst HTTP/1.1" 200 11322
+
+remove_interjections.fst:   0%|          | 0.00/11.3k [00:00<?, ?B/s][A
+                                                                     [A2026-08-24 11:07:21,826 DEBUG Attempting to release lock 140412145498304 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_remove_interjections_fst.lock
+2026-08-24 11:07:21,826 DEBUG Lock 140412145498304 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_remove_interjections_fst.lock
+Downloading:  27%|██▋       | 7/26 [00:01<00:01,  9.74file/s]2026-08-24 11:07:21,827 DEBUG Attempting to acquire lock 140409603944432 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___tagger_fst.lock
+2026-08-24 11:07:21,827 DEBUG Lock 140409603944432 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___tagger_fst.lock
+2026-08-24 11:07:21,839 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=remove_puncts.fst HTTP/1.1" 200 16642
+
+remove_puncts.fst:   0%|          | 0.00/16.6k [00:00<?, ?B/s][A
+
+en_tn_tagger.fst:  37%|███▋      | 2.10M/5.73M [00:00<00:00, 12.7MB/s][A[A2026-08-24 11:07:21,934 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=en%2Fitn%2Ftagger.fst HTTP/1.1" 200 687174
+
+
+
+tagger.fst:   0%|          | 0.00/687k [00:00<?, ?B/s][A[A[A2026-08-24 11:07:21,979 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=tag_oov.fst HTTP/1.1" 200 468802
+
+
+
+
+tag_oov.fst:   0%|          | 0.00/469k [00:00<?, ?B/s][A[A[A[A
+remove_puncts.fst: 100%|██████████| 16.6k/16.6k [00:00<00:00, 110kB/s][A
+                                                                      [A2026-08-24 11:07:21,993 DEBUG Attempting to release lock 140409603950928 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_remove_puncts_fst.lock
+2026-08-24 11:07:21,994 DEBUG Lock 140409603950928 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_remove_puncts_fst.lock
+2026-08-24 11:07:21,995 DEBUG Attempting to acquire lock 140409603953424 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_fst.lock
+2026-08-24 11:07:21,995 DEBUG Lock 140409603953424 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_fst.lock
+
+
+en_tn_tagger.fst:  73%|███████▎  | 4.19M/5.73M [00:00<00:00, 15.2MB/s][A[A2026-08-24 11:07:22,095 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh%2Fitn%2Ftagger.fst HTTP/1.1" 302 336
+
+
+                                                                      [A[A2026-08-24 11:07:22,133 DEBUG Attempting to release lock 140409603949536 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en_tn_tagger_fst.lock
+2026-08-24 11:07:22,134 DEBUG Lock 140409603949536 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en_tn_tagger_fst.lock
+Downloading:  35%|███▍      | 9/26 [00:01<00:02,  8.28file/s]2026-08-24 11:07:22,135 DEBUG Attempting to acquire lock 140409603952272 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___tagger_fst.lock
+2026-08-24 11:07:22,135 DEBUG Lock 140409603952272 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___tagger_fst.lock
+2026-08-24 11:07:22,139 DEBUG https://cdn-lfs-cn-1.modelscope.cn:443 "GET /prod/lfs-objects/1b/57/d35fa33030b50f2699d77b3c2cf2c3d5961c45d450322f5cf9aa729b810c?filename=tagger.fst&namespace=pengzhendong&repository=wetext&revision=master&tag=model&auth_key=1787540842-42f1a5db24924363a6c1a503df48e5ab-0-4f8006a634fb2ea20a16f98a62b8f759 HTTP/1.1" 200 1928858
+
+tagger.fst:   0%|          | 0.00/1.93M [00:00<?, ?B/s][A
+
+
+
+tag_oov.fst: 100%|██████████| 469k/469k [00:00<00:00, 2.92MB/s][A[A[A[A
+
+
+
+                                                               [A[A[A[A2026-08-24 11:07:22,143 DEBUG Attempting to release lock 140409603957840 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_tag_oov_fst.lock
+2026-08-24 11:07:22,144 DEBUG Lock 140409603957840 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_tag_oov_fst.lock
+2026-08-24 11:07:22,145 DEBUG Attempting to acquire lock 140409603957840 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___tagger_fst.lock
+2026-08-24 11:07:22,145 DEBUG Lock 140409603957840 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___tagger_fst.lock
+
+                                                       [A2026-08-24 11:07:22,243 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=en%2Ftn%2Ftagger.fst HTTP/1.1" 302 336
+2026-08-24 11:07:22,247 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh%2Ftn%2Ftagger.fst HTTP/1.1" 200 527178
+
+tagger.fst:   0%|          | 0.00/527k [00:00<?, ?B/s][A2026-08-24 11:07:22,250 DEBUG Attempting to release lock 140409603953424 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_fst.lock
+2026-08-24 11:07:22,250 DEBUG Lock 140409603953424 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_fst.lock
+Downloading:  42%|████▏     | 11/26 [00:01<00:01, 10.03file/s]2026-08-24 11:07:22,251 DEBUG Attempting to acquire lock 140409603949392 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___tagger_fst.lock
+2026-08-24 11:07:22,252 DEBUG Lock 140409603949392 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___tagger_fst.lock
+2026-08-24 11:07:22,298 DEBUG https://cdn-lfs-cn-1.modelscope.cn:443 "GET /prod/lfs-objects/24/5e/2dc9174cdd007a8e9e50f3339773d1adbbc7535b71cf67478dc1683cc3ec?filename=tagger.fst&namespace=pengzhendong&repository=wetext&revision=master&tag=model&auth_key=1787540842-039b854ac32649b5bea90624f8d204ff-0-09403fc5571845e0c9ddd4d9f732c398 HTTP/1.1" 200 5645674
+
+
+tagger.fst:   0%|          | 0.00/5.65M [00:00<?, ?B/s][A[A2026-08-24 11:07:22,378 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=ja%2Fitn%2Ftagger.fst HTTP/1.1" 200 242794
+
+
+
+
+tagger.fst:   0%|          | 0.00/243k [00:00<?, ?B/s][A[A[A[A
+
+
+
+                                                      [A[A[A[A2026-08-24 11:07:22,407 DEBUG Attempting to release lock 140409603949392 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___tagger_fst.lock
+2026-08-24 11:07:22,407 DEBUG Lock 140409603949392 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___tagger_fst.lock
+2026-08-24 11:07:22,408 DEBUG Attempting to acquire lock 140409603961872 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___tagger_fst.lock
+2026-08-24 11:07:22,409 DEBUG Lock 140409603961872 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___tagger_fst.lock
+
+
+tagger.fst:  37%|███▋      | 2.10M/5.65M [00:00<00:00, 16.4MB/s][A[A2026-08-24 11:07:22,509 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=ja%2Ftn%2Ftagger.fst HTTP/1.1" 200 401870
+
+
+
+
+tagger.fst:   0%|          | 0.00/402k [00:00<?, ?B/s][A[A[A[A
+
+tagger.fst:  74%|███████▍  | 4.19M/5.65M [00:00<00:00, 14.5MB/s][A[A
+
+                                                                [A[A2026-08-24 11:07:22,694 DEBUG Attempting to release lock 140409603957840 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___tagger_fst.lock
+2026-08-24 11:07:22,694 DEBUG Lock 140409603957840 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___tagger_fst.lock
+Downloading:  50%|█████     | 13/26 [00:01<00:01,  7.17file/s]2026-08-24 11:07:22,696 DEBUG Attempting to acquire lock 140409603962256 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___tagger_enable_0_to_9_fst.lock
+2026-08-24 11:07:22,696 DEBUG Lock 140409603962256 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___tagger_enable_0_to_9_fst.lock
+2026-08-24 11:07:22,798 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=ja%2Fitn%2Ftagger_enable_0_to_9.fst HTTP/1.1" 200 223022
+
+
+tagger_enable_0_to_9.fst:   0%|          | 0.00/223k [00:00<?, ?B/s][A[A
+
+
+
+tagger.fst: 100%|██████████| 402k/402k [00:00<00:00, 1.27MB/s][A[A[A[A
+
+
+
+                                                              [A[A[A[A2026-08-24 11:07:22,828 DEBUG Attempting to release lock 140409603961872 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___tagger_fst.lock
+2026-08-24 11:07:22,829 DEBUG Lock 140409603961872 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___tagger_fst.lock
+2026-08-24 11:07:22,830 DEBUG Attempting to acquire lock 140409603960288 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_enable_0_to_9_fst.lock
+2026-08-24 11:07:22,830 DEBUG Lock 140409603960288 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_enable_0_to_9_fst.lock
+
+
+                                                                    [A[A2026-08-24 11:07:22,900 DEBUG Attempting to release lock 140409603962256 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___tagger_enable_0_to_9_fst.lock
+2026-08-24 11:07:22,900 DEBUG Lock 140409603962256 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___tagger_enable_0_to_9_fst.lock
+Downloading:  58%|█████▊    | 15/26 [00:02<00:01,  7.82file/s]2026-08-24 11:07:22,901 DEBUG Attempting to acquire lock 140409603956736 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_traditional_to_simple_fst.lock
+2026-08-24 11:07:22,902 DEBUG Lock 140409603956736 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_traditional_to_simple_fst.lock
+2026-08-24 11:07:22,962 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh%2Fitn%2Ftagger_enable_0_to_9.fst HTTP/1.1" 403 137
+2026-08-24 11:07:22,962 DEBUG Attempting to release lock 140409603960288 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_enable_0_to_9_fst.lock
+2026-08-24 11:07:22,963 DEBUG Lock 140409603960288 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_enable_0_to_9_fst.lock
+2026-08-24 11:07:22,964 | ERROR   | modelscope_hub.download | Failed to download zh/itn/tagger_enable_0_to_9.fst: [E3002] [403] 操作过于频繁，请稍后再试! (request_id=31a0ee84-2bba-40b2-87c3-5be4f7b0c1c1) | code=10013201001
+  Request: GET https://modelscope.cn/api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh/itn/tagger_enable_0_to_9.fst
+  Response: {'Code': 10013201001, 'Message': '操作过于频繁，请稍后再试!', 'RequestId': '31a0ee84-2bba-40b2-87c3-5be4f7b0c1c1', 'Success': False}
+2026-08-24 11:07:22,965 DEBUG Attempting to acquire lock 140409603957792 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___verbalizer_fst.lock
+2026-08-24 11:07:22,965 DEBUG Lock 140409603957792 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___verbalizer_fst.lock
+2026-08-24 11:07:23,000 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=en%2Ftn%2Fverbalizer.fst HTTP/1.1" 403 137
+2026-08-24 11:07:23,001 DEBUG Attempting to release lock 140409603957792 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___verbalizer_fst.lock
+2026-08-24 11:07:23,001 DEBUG Lock 140409603957792 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___verbalizer_fst.lock
+2026-08-24 11:07:23,002 | ERROR   | modelscope_hub.download | Failed to download en/tn/verbalizer.fst: [E3002] [403] 操作过于频繁，请稍后再试! (request_id=522752bc-50b5-4098-aaa4-669f200e2a01) | code=10013201001
+  Request: GET https://modelscope.cn/api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=en/tn/verbalizer.fst
+  Response: {'Code': 10013201001, 'Message': '操作过于频繁，请稍后再试!', 'RequestId': '522752bc-50b5-4098-aaa4-669f200e2a01', 'Success': False}
+Downloading:  65%|██████▌   | 17/26 [00:02<00:00,  9.63file/s]2026-08-24 11:07:23,003 DEBUG Attempting to acquire lock 140409604017952 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,003 DEBUG Lock 140409604017952 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,004 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=traditional_to_simple.fst HTTP/1.1" 200 401134
+
+
+traditional_to_simple.fst:   0%|          | 0.00/401k [00:00<?, ?B/s][A[A
+
+                                                                     [A[A2026-08-24 11:07:23,034 DEBUG Attempting to release lock 140409603956736 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_traditional_to_simple_fst.lock
+2026-08-24 11:07:23,034 DEBUG Lock 140409603956736 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_traditional_to_simple_fst.lock
+2026-08-24 11:07:23,035 DEBUG Attempting to acquire lock 140409603935504 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,036 DEBUG Lock 140409603935504 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,069 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh%2Fitn%2Fverbalizer.fst HTTP/1.1" 403 137
+2026-08-24 11:07:23,070 DEBUG Attempting to release lock 140409603935504 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,070 DEBUG Lock 140409603935504 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,071 | ERROR   | modelscope_hub.download | Failed to download zh/itn/verbalizer.fst: [E3002] [403] 操作过于频繁，请稍后再试! (request_id=99ef4886-6521-43b3-8a9d-a43d8959bc7a) | code=10013201001
+  Request: GET https://modelscope.cn/api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh/itn/verbalizer.fst
+  Response: {'Code': 10013201001, 'Message': '操作过于频繁，请稍后再试!', 'RequestId': '99ef4886-6521-43b3-8a9d-a43d8959bc7a', 'Success': False}
+2026-08-24 11:07:23,072 DEBUG Attempting to acquire lock 140409603956352 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,072 DEBUG Lock 140409603956352 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,084 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=en%2Fitn%2Fverbalizer.fst HTTP/1.1" 403 137
+2026-08-24 11:07:23,085 DEBUG Attempting to release lock 140409604017952 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,085 DEBUG Lock 140409604017952 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,086 | ERROR   | modelscope_hub.download | Failed to download en/itn/verbalizer.fst: [E3002] [403] 操作过于频繁，请稍后再试! (request_id=99a5982b-f52f-4cac-bd90-445ba9bbfc34) | code=10013201001
+  Request: GET https://modelscope.cn/api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=en/itn/verbalizer.fst
+  Response: {'Code': 10013201001, 'Message': '操作过于频繁，请稍后再试!', 'RequestId': '99a5982b-f52f-4cac-bd90-445ba9bbfc34', 'Success': False}
+2026-08-24 11:07:23,087 DEBUG Attempting to acquire lock 140409604021648 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___verbalizer_fst.lock
+2026-08-24 11:07:23,087 DEBUG Lock 140409604021648 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___verbalizer_fst.lock
+
+tagger.fst: 100%|██████████| 527k/527k [00:00<00:00, 617kB/s][A
+                                                             [A2026-08-24 11:07:23,105 DEBUG Attempting to release lock 140409603952272 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___tagger_fst.lock
+2026-08-24 11:07:23,105 DEBUG Lock 140409603952272 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___tagger_fst.lock
+Downloading:  81%|████████  | 21/26 [00:02<00:00, 14.88file/s]2026-08-24 11:07:23,107 DEBUG Attempting to acquire lock 140409603949776 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_fst.lock
+2026-08-24 11:07:23,107 DEBUG Lock 140409603949776 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_fst.lock
+2026-08-24 11:07:23,122 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=ja%2Ftn%2Fverbalizer.fst HTTP/1.1" 403 137
+2026-08-24 11:07:23,123 DEBUG Attempting to release lock 140409604021648 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___verbalizer_fst.lock
+2026-08-24 11:07:23,123 DEBUG Lock 140409604021648 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___verbalizer_fst.lock
+2026-08-24 11:07:23,124 | ERROR   | modelscope_hub.download | Failed to download ja/tn/verbalizer.fst: [E3002] [403] 操作过于频繁，请稍后再试! (request_id=b09fe8c0-c773-493f-b8d5-3b6f5afa480b) | code=10013201001
+  Request: GET https://modelscope.cn/api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=ja/tn/verbalizer.fst
+  Response: {'Code': 10013201001, 'Message': '操作过于频繁，请稍后再试!', 'RequestId': 'b09fe8c0-c773-493f-b8d5-3b6f5afa480b', 'Success': False}
+2026-08-24 11:07:23,125 DEBUG Attempting to acquire lock 140409603963120 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_remove_erhua_fst.lock
+2026-08-24 11:07:23,126 DEBUG Lock 140409603963120 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_remove_erhua_fst.lock
+2026-08-24 11:07:23,148 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh%2Ftn%2Fverbalizer.fst HTTP/1.1" 403 137
+2026-08-24 11:07:23,149 DEBUG Attempting to release lock 140409603949776 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_fst.lock
+2026-08-24 11:07:23,149 DEBUG Lock 140409603949776 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_fst.lock
+2026-08-24 11:07:23,149 | ERROR   | modelscope_hub.download | Failed to download zh/tn/verbalizer.fst: [E3002] [403] 操作过于频繁，请稍后再试! (request_id=c4735da0-ab00-4a66-a1cf-21ffe3fc7f47) | code=10013201001
+  Request: GET https://modelscope.cn/api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh/tn/verbalizer.fst
+  Response: {'Code': 10013201001, 'Message': '操作过于频繁，请稍后再试!', 'RequestId': 'c4735da0-ab00-4a66-a1cf-21ffe3fc7f47', 'Success': False}
+2026-08-24 11:07:23,160 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh%2Ftn%2Fverbalizer_remove_erhua.fst HTTP/1.1" 403 137
+2026-08-24 11:07:23,161 DEBUG Attempting to release lock 140409603963120 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_remove_erhua_fst.lock
+2026-08-24 11:07:23,161 DEBUG Lock 140409603963120 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_remove_erhua_fst.lock
+2026-08-24 11:07:23,162 | ERROR   | modelscope_hub.download | Failed to download zh/tn/verbalizer_remove_erhua.fst: [E3002] [403] 操作过于频繁，请稍后再试! (request_id=c554927c-3a09-4672-ad79-4e73ad234fda) | code=10013201001
+  Request: GET https://modelscope.cn/api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh/tn/verbalizer_remove_erhua.fst
+  Response: {'Code': 10013201001, 'Message': '操作过于频繁，请稍后再试!', 'RequestId': 'c554927c-3a09-4672-ad79-4e73ad234fda', 'Success': False}
+2026-08-24 11:07:23,205 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=ja%2Fitn%2Fverbalizer.fst HTTP/1.1" 403 137
+2026-08-24 11:07:23,205 DEBUG Attempting to release lock 140409603956352 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,205 DEBUG Lock 140409603956352 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___verbalizer_fst.lock
+2026-08-24 11:07:23,206 | ERROR   | modelscope_hub.download | Failed to download ja/itn/verbalizer.fst: [E3002] [403] 操作过于频繁，请稍后再试! (request_id=d10e1ddf-273c-4bd6-8e97-224aa95fe2c6) | code=10013201001
+  Request: GET https://modelscope.cn/api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=ja/itn/verbalizer.fst
+  Response: {'Code': 10013201001, 'Message': '操作过于频繁，请稍后再试!', 'RequestId': 'd10e1ddf-273c-4bd6-8e97-224aa95fe2c6', 'Success': False}
+Downloading:  96%|█████████▌| 25/26 [00:02<00:00, 19.90file/s]
+
+
+tagger.fst: 100%|██████████| 687k/687k [00:01<00:00, 497kB/s][A[A[A
+
+
+                                                             [A[A[A2026-08-24 11:07:23,327 DEBUG Attempting to release lock 140409603944432 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___tagger_fst.lock
+2026-08-24 11:07:23,327 DEBUG Lock 140409603944432 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___tagger_fst.lock
+Downloading: 100%|██████████| 26/26 [00:02<00:00, 10.03file/s]
+2026-08-24 11:07:23,328 | WARNING | modelscope_hub.download | 8 file(s) failed to download
+2026-08-24 11:07:23,465 INFO no frontend is avaliable
+  0%|          | 0/1 [00:00<?, ?it/s]  0%|          | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/cosyvoice.py", line 96, in inference_zero_shot
+    model_input = self.frontend.frontend_zero_shot(i, prompt_text, prompt_wav, self.sample_rate, zero_shot_spk_id)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/frontend.py", line 172, in frontend_zero_shot
+    speech_feat, speech_feat_len = self._extract_speech_feat(prompt_wav)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/frontend.py", line 121, in _extract_speech_feat
+    speech = load_wav(prompt_wav, 24000)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/utils/file_utils.py", line 45, in load_wav
+    speech, sample_rate = torchaudio.load(wav, backend='soundfile')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchaudio/__init__.py", line 86, in load
+    return load_with_torchcodec(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchaudio/_torchcodec.py", line 82, in load_with_torchcodec
+    from torchcodec.decoders import AudioDecoder
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/__init__.py", line 12, in <module>
+    from . import decoders, encoders, samplers, transforms  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/decoders/__init__.py", line 7, in <module>
+    from .._core import AudioStreamMetadata, VideoStreamMetadata
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/_core/__init__.py", line 8, in <module>
+    from ._decoder_utils import create_audio_decoder, create_video_decoder
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/_core/_decoder_utils.py", line 13, in <module>
+    from torchcodec._core._metadata import (
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/_core/_metadata.py", line 15, in <module>
+    from torchcodec._core.ops import (
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/_core/ops.py", line 38, in <module>
+    load_torchcodec_shared_libraries()
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 111, in load_torchcodec_shared_libraries
+    raise RuntimeError(
+RuntimeError: Could not load libtorchcodec. Likely causes:
+          1. FFmpeg is not properly installed in your environment. We support
+             versions 4, 5, 6, 7, and 8, and we attempt to load libtorchcodec
+             for each of those versions. Errors for versions not installed on
+             your system are expected; only the error for your installed FFmpeg
+             version is relevant. On Windows, ensure you've installed the
+             "full-shared" version which ships DLLs.
+          2. The PyTorch version (2.11.0+cu130) is not compatible with
+             this version of TorchCodec. Refer to the version compatibility
+             table:
+             https://github.com/pytorch/torchcodec?tab=readme-ov-file#installing-torchcodec.
+          3. Another runtime dependency; see exceptions below.
+
+        The following exceptions were raised as we tried to load libtorchcodec:
+        
+[start of libtorchcodec loading traceback]
+FFmpeg version 8:
+Traceback (most recent call last):
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
+    ctypes.CDLL(path)
+  File "/root/miniconda3/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libavutil.so.60: cannot open shared object file: No such file or directory
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 93, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/libtorchcodec_core8.so
+
+FFmpeg version 7:
+Traceback (most recent call last):
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
+    ctypes.CDLL(path)
+  File "/root/miniconda3/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libavutil.so.59: cannot open shared object file: No such file or directory
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 93, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/libtorchcodec_core7.so
+
+FFmpeg version 6:
+Traceback (most recent call last):
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
+    ctypes.CDLL(path)
+  File "/root/miniconda3/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libavutil.so.58: cannot open shared object file: No such file or directory
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 93, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/libtorchcodec_core6.so
+
+FFmpeg version 5:
+Traceback (most recent call last):
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
+    ctypes.CDLL(path)
+  File "/root/miniconda3/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libavutil.so.57: cannot open shared object file: No such file or directory
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 93, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/libtorchcodec_core5.so
+
+FFmpeg version 4:
+Traceback (most recent call last):
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
+    ctypes.CDLL(path)
+  File "/root/miniconda3/lib/python3.12/ctypes/__init__.py", line 379, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: libavdevice.so.58: cannot open shared object file: No such file or directory
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 93, in load_torchcodec_shared_libraries
+    torch.ops.load_library(core_library_path)
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
+    raise OSError(f"Could not load this library: {path}") from e
+OSError: Could not load this library: /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchcodec/libtorchcodec_core4.so
+[end of libtorchcodec loading traceback].
+2026-08-24 11:09:25,906 DEBUG Loading /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchao/_C_cutlass_90a.abi3.so
+2026-08-24 11:09:25,907 DEBUG Loading /root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+2026-08-24 11:09:25,919 DEBUG Skipping import of cpp extensions: operator torchao::_linear_8bit_act_1bit_weight does not exist
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 8761.11it/s]
+2026-08-24 11:09:29,466 INFO input frame rate=25
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/pyworld/__init__.py:13: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py:153: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+2026-08-24 11:09:32,762 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:09:33,348 DEBUG https://modelscope.cn:443 "GET /openapi/v1/models/pengzhendong/wetext HTTP/1.1" 200 1309
+2026-08-24 11:09:33,354 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:09:33,594 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo/files?Revision=master&Recursive=True HTTP/1.1" 200 None
+2026-08-24 11:09:33,620 | INFO    | modelscope_hub.download | Downloading 26 files from pengzhendong/wetext@master
+Downloading:   0%|          | 0/26 [00:00<?, ?file/s]2026-08-24 11:09:33,634 DEBUG Attempting to acquire lock 140288470287040 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_enable_0_to_9_fst.lock
+2026-08-24 11:09:33,634 DEBUG Lock 140288470287040 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_enable_0_to_9_fst.lock
+2026-08-24 11:09:33,636 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:09:33,638 DEBUG Attempting to acquire lock 140288470294960 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___verbalizer_fst.lock
+2026-08-24 11:09:33,638 DEBUG Attempting to acquire lock 140288470287568 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___verbalizer_fst.lock
+2026-08-24 11:09:33,639 DEBUG Lock 140288470294960 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___verbalizer_fst.lock
+2026-08-24 11:09:33,639 DEBUG Lock 140288470287568 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___verbalizer_fst.lock
+2026-08-24 11:09:33,640 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:09:33,642 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:09:33,644 DEBUG Attempting to acquire lock 140288470299088 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___verbalizer_fst.lock
+2026-08-24 11:09:33,644 DEBUG Lock 140288470299088 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___verbalizer_fst.lock
+2026-08-24 11:09:33,645 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:09:33,921 DEBUG https://modelscope.cn:443 "GET /api/v1/repos/internalAccelerationInfo HTTP/1.1" 200 188
+2026-08-24 11:09:33,923 DEBUG Starting new HTTP connection (1): 100.100.100.200:80
+2026-08-24 11:09:33,924 DEBUG https://modelscope.cn:443 "GET /api/v1/repos/internalAccelerationInfo HTTP/1.1" 200 188
+2026-08-24 11:09:33,925 DEBUG Starting new HTTP connection (1): 100.100.100.200:80
+2026-08-24 11:09:33,927 DEBUG https://modelscope.cn:443 "GET /api/v1/repos/internalAccelerationInfo HTTP/1.1" 200 188
+2026-08-24 11:09:33,928 DEBUG Starting new HTTP connection (1): 100.100.100.200:80
+2026-08-24 11:09:33,929 DEBUG https://modelscope.cn:443 "GET /api/v1/repos/internalAccelerationInfo HTTP/1.1" 200 188
+2026-08-24 11:09:33,931 DEBUG Starting new HTTP connection (1): 100.100.100.200:80
+2026-08-24 11:09:34,130 DEBUG Starting new HTTPS connection (2): modelscope.cn:443
+2026-08-24 11:09:34,133 DEBUG Starting new HTTPS connection (3): modelscope.cn:443
+2026-08-24 11:09:34,134 DEBUG Starting new HTTPS connection (4): modelscope.cn:443
+2026-08-24 11:09:34,228 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh%2Fitn%2Ftagger_enable_0_to_9.fst HTTP/1.1" 302 350
+2026-08-24 11:09:34,240 DEBUG Starting new HTTPS connection (1): cdn-lfs-cn-1.modelscope.cn:443
+2026-08-24 11:09:34,436 DEBUG https://cdn-lfs-cn-1.modelscope.cn:443 "GET /prod/lfs-objects/a2/9d/ad112b1725e79f96f5a84e8b7f2ceb9dc3d88ffc785ebf994899701ccc9f?filename=tagger_enable_0_to_9.fst&namespace=pengzhendong&repository=wetext&revision=master&tag=model&auth_key=1787540974-61ee0eb705094ae8affc80d4bf3d06ce-0-465137dc498c12047ba49d1f6387620c HTTP/1.1" 200 1998630
+
+tagger_enable_0_to_9.fst:   0%|          | 0.00/2.00M [00:00<?, ?B/s][A2026-08-24 11:09:34,493 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=en%2Ftn%2Fverbalizer.fst HTTP/1.1" 302 340
+2026-08-24 11:09:34,494 DEBUG Starting new HTTPS connection (2): cdn-lfs-cn-1.modelscope.cn:443
+2026-08-24 11:09:34,498 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh%2Fitn%2Fverbalizer.fst HTTP/1.1" 302 340
+2026-08-24 11:09:34,499 DEBUG Starting new HTTPS connection (3): cdn-lfs-cn-1.modelscope.cn:443
+2026-08-24 11:09:34,508 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=en%2Fitn%2Fverbalizer.fst HTTP/1.1" 200 748106
+
+
+verbalizer.fst:   0%|          | 0.00/748k [00:00<?, ?B/s][A[A
+
+verbalizer.fst: 100%|██████████| 748k/748k [00:00<00:00, 5.52MB/s][A[A
+
+                                                                  [A[A2026-08-24 11:09:34,648 DEBUG Attempting to release lock 140288470287568 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___verbalizer_fst.lock
+2026-08-24 11:09:34,648 DEBUG Lock 140288470287568 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___itn___verbalizer_fst.lock
+Downloading:  73%|███████▎  | 19/26 [00:01<00:00, 18.57file/s]2026-08-24 11:09:34,650 DEBUG Attempting to acquire lock 140288470300000 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___verbalizer_fst.lock
+2026-08-24 11:09:34,650 DEBUG Lock 140288470300000 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___verbalizer_fst.lock
+2026-08-24 11:09:34,668 DEBUG https://cdn-lfs-cn-1.modelscope.cn:443 "GET /prod/lfs-objects/44/0a/c75aaeda3dd81f91b42abec4c08e84b7b0186462cc536a3a74d3ad1f13c4?filename=verbalizer.fst&namespace=pengzhendong&repository=wetext&revision=master&tag=model&auth_key=1787540974-a55b3b2243004a1cb7bf4e1f292b0424-0-e57bbb9495af8d74844fe8c4fd4652e6 HTTP/1.1" 200 1453678
+
+
+verbalizer.fst:   0%|          | 0.00/1.45M [00:00<?, ?B/s][A[A
+tagger_enable_0_to_9.fst: 100%|██████████| 2.00M/2.00M [00:00<00:00, 7.45MB/s][A
+                                                                              [A2026-08-24 11:09:34,708 DEBUG https://cdn-lfs-cn-1.modelscope.cn:443 "GET /prod/lfs-objects/03/15/5c88f317b2795969e264c19f87faf98b9853d5ac631e419bacdc3b3ee15a?filename=verbalizer.fst&namespace=pengzhendong&repository=wetext&revision=master&tag=model&auth_key=1787540974-f95295cb80ee4d649fcf24eb10ce1d99-0-9e6b37bcea9c05e1389eb4efa7ea84a4 HTTP/1.1" 200 6398822
+
+verbalizer.fst:   0%|          | 0.00/6.40M [00:00<?, ?B/s][A2026-08-24 11:09:34,712 DEBUG Attempting to release lock 140288470287040 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_enable_0_to_9_fst.lock
+2026-08-24 11:09:34,712 DEBUG Lock 140288470287040 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___tagger_enable_0_to_9_fst.lock
+2026-08-24 11:09:34,713 DEBUG Attempting to acquire lock 140288470287040 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___verbalizer_fst.lock
+2026-08-24 11:09:34,714 DEBUG Lock 140288470287040 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___verbalizer_fst.lock
+
+
+verbalizer.fst:  72%|███████▏  | 1.05M/1.45M [00:00<00:00, 9.60MB/s][A[A
+
+                                                                    [A[A2026-08-24 11:09:34,810 DEBUG Attempting to release lock 140288470299088 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___verbalizer_fst.lock
+2026-08-24 11:09:34,810 DEBUG Lock 140288470299088 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___itn___verbalizer_fst.lock
+Downloading:  81%|████████  | 21/26 [00:01<00:00, 17.42file/s]2026-08-24 11:09:34,812 DEBUG Attempting to acquire lock 140288470297216 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_fst.lock
+2026-08-24 11:09:34,812 DEBUG Lock 140288470297216 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_fst.lock
+2026-08-24 11:09:34,813 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=ja%2Fitn%2Fverbalizer.fst HTTP/1.1" 200 273998
+
+
+verbalizer.fst:   0%|          | 0.00/274k [00:00<?, ?B/s][A[A
+
+                                                          [A[A2026-08-24 11:09:34,820 DEBUG Attempting to release lock 140288470300000 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___verbalizer_fst.lock
+2026-08-24 11:09:34,820 DEBUG Lock 140288470300000 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___itn___verbalizer_fst.lock
+2026-08-24 11:09:34,822 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=ja%2Ftn%2Fverbalizer.fst HTTP/1.1" 200 328042
+
+
+verbalizer.fst:   0%|          | 0.00/328k [00:00<?, ?B/s][A[A2026-08-24 11:09:34,823 DEBUG Attempting to acquire lock 140288470298464 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_remove_erhua_fst.lock
+2026-08-24 11:09:34,824 DEBUG Lock 140288470298464 acquired on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_remove_erhua_fst.lock
+
+verbalizer.fst:  16%|█▋        | 1.05M/6.40M [00:00<00:00, 5.84MB/s][A2026-08-24 11:09:34,912 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh%2Ftn%2Fverbalizer.fst HTTP/1.1" 302 340
+2026-08-24 11:09:34,916 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo?Revision=master&FilePath=zh%2Ftn%2Fverbalizer_remove_erhua.fst HTTP/1.1" 302 353
+2026-08-24 11:09:34,955 DEBUG https://cdn-lfs-cn-1.modelscope.cn:443 "GET /prod/lfs-objects/5a/13/cd679dd54637d12d2bd1bd33ee2165d91c867e14468c93195af02256e5da?filename=verbalizer.fst&namespace=pengzhendong&repository=wetext&revision=master&tag=model&auth_key=1787540974-a1a1a9161789493999770df4225fd700-0-5c7b77053194276e6c741217102dbfb6 HTTP/1.1" 200 1069758
+
+
+
+verbalizer.fst:   0%|          | 0.00/1.07M [00:00<?, ?B/s][A[A[A2026-08-24 11:09:34,963 DEBUG https://cdn-lfs-cn-1.modelscope.cn:443 "GET /prod/lfs-objects/4e/cd/ea636b97cb7dff2637499713815836ec703d29cf044f17106d428f258ee5?filename=verbalizer_remove_erhua.fst&namespace=pengzhendong&repository=wetext&revision=master&tag=model&auth_key=1787540974-b3ffae3d329e42a8bc46d9f7dacba9a5-0-1124758fdf78c20269603eb6245c33a3 HTTP/1.1" 200 1069842
+
+
+
+
+verbalizer_remove_erhua.fst:   0%|          | 0.00/1.07M [00:00<?, ?B/s][A[A[A[A
+
+
+
+                                                                        [A[A[A[A2026-08-24 11:09:35,033 DEBUG Attempting to release lock 140288470298464 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_remove_erhua_fst.lock
+2026-08-24 11:09:35,033 DEBUG Lock 140288470298464 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_remove_erhua_fst.lock
+Downloading:  88%|████████▊ | 23/26 [00:01<00:00, 15.18file/s]
+
+
+                                                           [A[A[A2026-08-24 11:09:35,037 DEBUG Attempting to release lock 140288470297216 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_fst.lock
+2026-08-24 11:09:35,038 DEBUG Lock 140288470297216 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_zh___tn___verbalizer_fst.lock
+
+verbalizer.fst:  33%|███▎      | 2.10M/6.40M [00:00<00:00, 6.02MB/s][A
+verbalizer.fst:  66%|██████▌   | 4.19M/6.40M [00:00<00:00, 8.59MB/s][A
+                                                                    [A2026-08-24 11:09:35,355 DEBUG Attempting to release lock 140288470294960 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___verbalizer_fst.lock
+2026-08-24 11:09:35,355 DEBUG Lock 140288470294960 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_en___tn___verbalizer_fst.lock
+Downloading:  96%|█████████▌| 25/26 [00:01<00:00, 11.99file/s]
+
+verbalizer.fst: 100%|██████████| 328k/328k [00:00<00:00, 548kB/s][A[A
+
+                                                                 [A[A2026-08-24 11:09:35,424 DEBUG Attempting to release lock 140288470287040 on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___verbalizer_fst.lock
+2026-08-24 11:09:35,424 DEBUG Lock 140288470287040 released on /root/.cache/modelscope/.lock/model_pengzhendong___wetext_ja___tn___verbalizer_fst.lock
+Downloading: 100%|██████████| 26/26 [00:01<00:00, 14.45file/s]
+2026-08-24 11:09:35,663 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:09:35,873 DEBUG https://modelscope.cn:443 "GET /openapi/v1/models/pengzhendong/wetext HTTP/1.1" 200 1309
+2026-08-24 11:09:35,877 DEBUG Starting new HTTPS connection (1): modelscope.cn:443
+2026-08-24 11:09:36,041 DEBUG https://modelscope.cn:443 "GET /api/v1/models/pengzhendong/wetext/repo/files?Revision=master&Recursive=True HTTP/1.1" 403 137
+2026-08-24 11:09:36,042 INFO no frontend is avaliable
+  0%|          | 0/1 [00:00<?, ?it/s]/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torchaudio/__init__.py:86: UserWarning: The 'backend' parameter is not used by TorchCodec AudioDecoder.
+  return load_with_torchcodec(
+2026-08-24 11:09:40,856 INFO synthesis text 你好，这是 CosyVoice3 GPU 验证。
+/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/model.py:103: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with self.llm_context, torch.cuda.amp.autocast(self.fp16 is True and hasattr(self.llm, 'vllm') is False):
+Exception in thread Thread-1 (llm_job):
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/model.py", line 121, in llm_job
+    for i in token_generator:
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 40, in generator_context
+    response = gen.send(None)
+               ^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/llm/llm.py", line 479, in inference
+    assert 151646 in text, '<|endofprompt|> not detected in CosyVoice3 text or prompt_text, check your input!'
+           ^^^^^^^^^^^^^^
+AssertionError: <|endofprompt|> not detected in CosyVoice3 text or prompt_text, check your input!
+/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/model.py:426: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(self.fp16):
+  0%|          | 0/1 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/cosyvoice.py", line 99, in inference_zero_shot
+    for model_output in self.model.tts(**model_input, stream=stream, speed=speed):
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/model.py", line 379, in tts
+    this_tts_speech = self.token2wav(token=this_tts_speech_token,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/cli/model.py", line 447, in token2wav
+    tts_speech, _ = self.hift.inference(speech_feat=tts_mel, finalize=finalize)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/hifigan/generator.py", line 717, in inference
+    f0 = self.f0_predictor(speech_feat.to(torch.float64), finalize=finalize).to(speech_feat)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/hifigan/f0_predictor.py", line 97, in forward
+    x = self.condnet[0](x)
+        ^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/cosyvoice3-s3-batching/src/CosyVoice/cosyvoice/transformer/convolution.py", line 185, in forward
+    x = super(CausalConv1d, self).forward(x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 375, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/sglang-omni/.venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 370, in _conv_forward
+    return F.conv1d(
+           ^^^^^^^^^
+RuntimeError: Calculated padded input size per channel: (3). Kernel size: (4). Kernel size can't be greater than actual input size

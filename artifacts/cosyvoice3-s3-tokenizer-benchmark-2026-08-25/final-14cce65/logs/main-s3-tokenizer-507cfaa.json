@@ -1,0 +1,90 @@
+{
+  "commit": "507cfaa0d42ce459b446ea53e72c4ddc357b4a83",
+  "mode": "serial_s3_tokenizer",
+  "warmup_iterations_per_shape": 2,
+  "measured_iterations_per_shape": 5,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "torch": "2.11.0+cu130",
+  "onnxruntime": "1.29.0",
+  "providers": [
+    "CUDAExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "rows": [
+    {
+      "concurrent_references": 1,
+      "p50_ms": 4.59,
+      "p95_ms": 4.66,
+      "items_per_s": 217.882,
+      "samples_ms": [
+        4.66,
+        4.64,
+        4.59,
+        4.48,
+        4.39
+      ],
+      "token_lengths": [
+        198
+      ]
+    },
+    {
+      "concurrent_references": 2,
+      "p50_ms": 15.18,
+      "p95_ms": 18.95,
+      "items_per_s": 131.78,
+      "samples_ms": [
+        16.5,
+        18.95,
+        15.18,
+        15.09,
+        15.04
+      ],
+      "token_lengths": [
+        198,
+        185
+      ]
+    },
+    {
+      "concurrent_references": 4,
+      "p50_ms": 30.46,
+      "p95_ms": 37.76,
+      "items_per_s": 131.319,
+      "samples_ms": [
+        31.01,
+        29.86,
+        37.76,
+        30.46,
+        30.42
+      ],
+      "token_lengths": [
+        198,
+        185,
+        229,
+        278
+      ]
+    },
+    {
+      "concurrent_references": 8,
+      "p50_ms": 65.2,
+      "p95_ms": 69.44,
+      "items_per_s": 122.705,
+      "samples_ms": [
+        63.46,
+        65.95,
+        65.2,
+        61.01,
+        69.44
+      ],
+      "token_lengths": [
+        198,
+        185,
+        229,
+        278,
+        191,
+        188,
+        145,
+        254
+      ]
+    }
+  ]
+}
